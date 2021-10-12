@@ -249,15 +249,12 @@ Spree::Core::Engine.add_routes do
 
         # Shipment API
         resources :shipments do
-          collection do
-            post 'transfer_to_location'
-            post 'transfer_to_shipment'
-          end
           member do
+            patch :cancel
+            patch :resume
+            patch :pend
             patch :ready
             patch :ship
-            patch :add
-            patch :remove
           end
         end
 
