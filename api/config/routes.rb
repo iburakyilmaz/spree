@@ -250,11 +250,9 @@ Spree::Core::Engine.add_routes do
         # Shipment API
         resources :shipments do
           member do
-            patch :cancel
-            patch :resume
-            patch :pend
-            patch :ready
-            patch :ship
+            %w[ready ship cancel resume pend].each do |state|
+              patch state.to_sym
+            end
           end
         end
 
