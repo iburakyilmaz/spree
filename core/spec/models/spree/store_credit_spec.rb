@@ -5,6 +5,8 @@ describe 'StoreCredit' do
   let(:store_credit) { build(:store_credit, store_credit_attrs) }
   let(:store_credit_attrs) { {} }
 
+  it_behaves_like 'metadata', factory: :store_credit
+
   describe 'callbacks' do
     subject { store_credit.save }
 
